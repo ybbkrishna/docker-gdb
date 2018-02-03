@@ -1,11 +1,8 @@
-FROM ubuntu:quantal
-MAINTAINER Manfred Touron m@42.am
+FROM ubuntu:trusty
+LABEL maintainer="ybbkrishna@gmail.com"
 
-RUN echo "deb http://archive.ubuntu.com/ubuntu/ quantal main universe" > /etc/apt/sources.list
 RUN apt-get update
 RUN apt-get install -y gdb gdbserver
 
-ADD run.sh /run.sh
-RUN chmod +x /run.sh
-ENTRYPOINT ["/run.sh"]
+ENTRYPOINT ['/bin/bash']
 EXPOSE 4242
